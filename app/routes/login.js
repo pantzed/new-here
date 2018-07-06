@@ -9,8 +9,8 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
-router.get('/', (req, res) => {
-  res.render('index', {title: 'Welcome Page'});
+router.get('/login', (req, res) => {
+  res.render('login', {title: 'Login Page'});
 });
 
 module.exports = router;

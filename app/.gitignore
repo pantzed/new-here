@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# ignore DS_store
+../.DS_store
+/.DS_store
+.DS_store

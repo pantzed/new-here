@@ -1,8 +1,5 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.nav-bar-brand-title {
+  font-size: 1.4em;
+  font-family: 'Gochi Hand', cursive;
 }
 
-a {
-  color: #00B7FF;
-}
