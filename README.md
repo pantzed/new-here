@@ -23,6 +23,9 @@ your locations changes the events available to you in that area.
 * edit a created event
 * delete a created event
 
+## Comps
+See 'comps' directory for wireframe
+
 ## Stack
 Style Framework: Bootstrap 4
 DOM Manipulation: Vanilla
