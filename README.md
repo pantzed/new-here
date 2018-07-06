@@ -24,14 +24,14 @@ your locations changes the events available to you in that area.
 * delete a created event
 
 ## Comps
-See 'comps' directory for wireframe
+See 'comps' directory for wireframes
 
 ## Stack
-Style Framework: Bootstrap 4
-DOM Manipulation: Vanilla
-Server: Express
-Templating Library: ejs
-Querying Library: Knex
-Database: Postgress
-Hosting Service: Heroku
+* Style Framework: Bootstrap 4
+* DOM Manipulation: Vanilla
+* Server: Express
+* Templating Library: ejs
+* Querying Library: Knex
+* Database: Postgress
+* Hosting Service: Heroku
 
