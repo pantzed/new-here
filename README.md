@@ -38,3 +38,4 @@ See 'comps' directory for wireframes
 
 ## External APIs
 * Google User Authentication
+* Google Maps
