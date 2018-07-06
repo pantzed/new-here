@@ -36,3 +36,12 @@ p {
   padding: 25px;
 }
 
+.footer-nav {
+  background-color: white;
+}
+.footer-nav > ul > li {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 15px 10px;
+}
+

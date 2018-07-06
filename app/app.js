@@ -11,7 +11,6 @@ const logger = require('morgan');
 const port = process.env.PORT || 5000;
 
 const index = require('./routes/index');
-const usersRouter = require('./routes/users');
 const userLogin = require('./routes/login');
 
 const app = express();
@@ -27,7 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(index);
-app.use('/users', usersRouter);
 app.use(userLogin);
 
 // catch 404 and forward to error handler
