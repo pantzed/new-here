@@ -30,8 +30,9 @@ See 'comps' directory for wireframes
 * Style Framework: Bootstrap 4
 * DOM Manipulation: Vanilla
 * Server: Express
-* Templating Library: ejs
-* Querying Library: Knex
+  * Templating Library: ejs
+  * Querying Library: Knex
+  * Socket Library: Socket.io
 * Database: Postgress
 * Hosting Service: Heroku
 
