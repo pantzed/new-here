@@ -35,3 +35,5 @@ See 'comps' directory for wireframes
 * Database: Postgress
 * Hosting Service: Heroku
 
+## External APIs
+* Google User Authentication
