@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     table.integer('age').unsigned();
     table.string('location').notNullable();
     table.string('photo');
+    table.string('user_type');
   });
 };
 

@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments('id').primary();
     table.string('title').notNullable();
     table.string('description').notNullable();
-    table.string('date').notNullable();
+    table.timestamp('date').defaultTo(knex.fn.now()).notNullable();
     table.string('location').notNullable();
     table.string('messages');
     table.integer('admin');

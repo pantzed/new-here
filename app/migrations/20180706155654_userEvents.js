@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('userEvents', (table) => {
+  return knex.schema.createTable('user_events', (table) => {
     table.integer('admin').unsigned();
     table.foreign('admin').references('users.id');
     table.integer('event').unsigned();
@@ -9,5 +9,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('userEvents');
+  return knex.schema.dropTable('user_events');
 };

@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('events').insert([
-        {title: 'First Event', description: 'A fun and exciting first event', date: '1/1/2020', location: 'Austin, TX', messages: 'Some text file with messages', admin: 1}
+        {title: 'First Event', description: 'A fun and exciting first event', location: 'Austin, TX', messages: 'Some text file with messages', admin: 1}
       ]);
     });
 };

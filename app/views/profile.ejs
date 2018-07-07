@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Copyright (c) 2018 Ed Pantzar
+    1620 E Riverside Drive APT 4061
+    Austin, TX 78741
+    email: edpantzar@gmail.com
+    All rights reserved.
+    This code is the property of Ed Pantzar and may not be
+    copied, modified, or disclosed without any prior and written
+    permission.
+-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/profile.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Rubik|Lato" rel="stylesheet">
+</head>
+<body>
+
+  <%- include _nav.ejs %>
+
+  <main id="main-content" class="container-fluid fill-screen">
+    <div class="row mt-5 mr-3 ml-3">
+      <div class="col-4">
+        <div class="row">
+          <div class="col-12">
+            <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+                class="img img-fluid img-shadow" />
+            <div class="pt-2">
+              <h2>Name</h2>
+              <h3>Location</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <button type="button" class="btn btn-primary">Edit Profile</button>
+            <button type="button" class="btn btn-secondary">Create Event</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-12">
+            <h2>Your Upcoming Events</h2>
+
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Collapsible Group Item #1
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Collapsible Group Item #2
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Collapsible Group Item #3
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            <h4>Suggested Events</h4>
+            <ul>
+              <li>This event</li>
+              <li>That event</li>
+              <li>Another event</li>
+              <li>Last event</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div id="map" class="google-map img-shadow">
+              <script>
+                  // Initialize and add the map
+                  function initMap() {
+                    // The location of Uluru
+                    var uluru = {lat: -25.344, lng: 131.036};
+                    // The map, centered at Uluru
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 4, center: uluru});
+                    // The marker, positioned at Uluru
+                    var marker = new google.maps.Marker({position: uluru, map: map});
+                  }
+              </script>
+              <script async defer
+              src="https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/js?key=AIzaSyDjVuClQnfaaaAx5O3J4Hi_joj3OZYK_B0&callback=initMap">
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12">
+            <h4>About Your City</h4>
+            <p>
+                Bacon ipsum dolor amet rump pork t-bone, jerky shank brisket chicken pastrami 
+                fatback pancetta tri-tip shankle capicola sausage. Meatloaf biltong beef ribs 
+                andouille swine spare ribs pork chop shoulder ham hock landjaeger cow alcatra 
+                flank tongue. Pork belly biltong filet mignon pastrami boudin beef ribs. Chicken 
+                cupim drumstick ham hock. Tenderloin sirloin buffalo jerky sausage doner ham 
+                hock pig prosciutto. Pig fatback shank, tenderloin short ribs alcatra bresaola 
+                flank sirloin chuck pancetta capicola cow. Flank turkey beef ribs, kielbasa 
+                sausage corned beef turducken ground round cow pork belly ham hock rump chicken 
+                burgdoggen shankle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<%- include _footer.ejs %>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+  crossorigin="anonymous">
+</script>
+<script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  crossorigin="anonymous">
+</script>
+<script 
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  crossorigin="anonymous">
+</script>  
+<script src="../javascripts/profile_map.js"></script>
+</body>
+</html>
