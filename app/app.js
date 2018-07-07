@@ -8,7 +8,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 const index = require('./routes/index');
 const userLogin = require('./routes/login');
@@ -48,6 +48,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => { console.log(`Listening on port ${port}...`) });
+// app.listen(port, () => { console.log(`Listening on port ${port}...`) });
 
 module.exports = app;
