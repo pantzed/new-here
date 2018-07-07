@@ -21,7 +21,7 @@ router.get('/events/event/edit', (req, res) => {
   res.render('edit_event', ({title: 'Edit Event'}));
 })
 
-router.get('/events/event/add', (req, res) => {
+router.get('/events/add', (req, res) => {
   res.render('create_event', ({title: "Create an Event"}));
 });
 
