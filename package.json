@@ -1,19 +1,27 @@
 {
-  "name": "new-here",
-  "version": "1.0.0",
-  "description": "New Here is a social app for finding group and individual activities when moving to or visiting a new place. The app allows users to  create a profile, join events, and create new events. In addition,  each event has a live chat feed for joiners of an event to  communicate with each other. Events are location based, so changing your locations changes the events available to you in that area.",
-  "main": "index.js",
+  "name": "app",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "8.11.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pantzed/new-here.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pantzed/new-here/issues"
-  },
-  "homepage": "https://github.com/pantzed/new-here#readme"
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "fs": "0.0.1-security",
+    "http-errors": "~1.6.2",
+    "knex": "^0.15.0",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3"
+  }
 }
