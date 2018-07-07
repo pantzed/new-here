@@ -98,6 +98,11 @@
             </div>
           </div>
         </div>
+        <div class="row mt-3">
+          <div class="col-12 d-flex justify-content-end">
+            <button type="button" class="btn btn-primary img-shadow">Discover More Events!</button>
+          </div>
+        </div>
         <div class="row mt-5">
           <div class="col-6">
             <h4>Suggested Events</h4>
@@ -114,10 +119,10 @@
                   // Initialize and add the map
                   function initMap() {
                     // The location of Uluru
-                    var uluru = {lat: -25.344, lng: 131.036};
+                    var uluru = {lat: 30.267, lng: -97.743};
                     // The map, centered at Uluru
                     var map = new google.maps.Map(
-                        document.getElementById('map'), {zoom: 4, center: uluru});
+                        document.getElementById('map'), {zoom: 13, center: uluru});
                     // The marker, positioned at Uluru
                     var marker = new google.maps.Marker({position: uluru, map: map});
                   }
