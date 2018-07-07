@@ -1,7 +1,9 @@
 body {
   background-image: url(https://images.pexels.com/photos/227433/pexels-photo-227433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   background-position: cover;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 form {
