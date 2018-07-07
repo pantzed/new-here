@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Copyright (c) 2018 Ed Pantzar
+    1620 E Riverside Drive APT 4061
+    Austin, TX 78741
+    email: edpantzar@gmail.com
+    All rights reserved.
+    This code is the property of Ed Pantzar and may not be
+    copied, modified, or disclosed without any prior and written
+    permission.
+-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/events.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Rubik|Lato" rel="stylesheet">
+</head>
+<body>
+
+  <%- include _nav.ejs %>
+
+  <main id="main-content" class="container-fluid fill-screen">
+    <div class="row mt-5 mr-3 ml-3">
+      <div class="col-12">
+        <h2>Events in Austin, TX</h2>
+        <div class="row mt-5 mb-5"> <!--event row-->
+          <div class="col-4">
+            <img src="https://images.pexels.com/photos/433452/pexels-photo-433452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                class="img img-fluid img-shadow" />
+          </div>
+          <div class="col-8">
+            <h4>Jugglers and Shit</h4>
+            <h6>Location | Date</h6>
+            <p>
+                Bacon ipsum dolor amet rump pork t-bone, jerky shank brisket chicken pastrami 
+                fatback pancetta tri-tip shankle capicola sausage. Meatloaf biltong beef ribs 
+                andouille swine spare ribs pork chop shoulder ham hock landjaeger cow alcatra 
+                flank tongue. Pork belly biltong filet mignon pastrami boudin beef ribs. Chicken 
+                cupim drumstick ham hock. Tenderloin sirloin buffalo jerky sausage doner ham 
+                hock pig prosciutto. Pig fatback shank, tenderloin short ribs alcatra bresaola 
+                flank sirloin chuck pancetta capicola cow. Flank turkey beef ribs, kielbasa 
+                sausage corned beef turducken ground round cow pork belly ham hock rump chicken 
+                burgdoggen shankle.
+            </p>
+            <button type="button" class="btn btn-primary">Join Event</button>
+            <!-- This link needs to receive an attribute from the db with the event's id -->
+            <a href="/events/event"><button type="button" class="btn btn-info">Details</button></a>
+          </div>
+        </div>
+        <hr>
+        <div class="row mt-5 mb-5"> <!--event row-->
+          <div class="col-4">
+            <img src="https://images.pexels.com/photos/625644/pexels-photo-625644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                class="img img-fluid img-shadow" />
+          </div>
+          <div class="col-8">
+            <h4>Rave People</h4>
+            <h6>Location | Date</h6>
+            <p>
+                Bacon ipsum dolor amet rump pork t-bone, jerky shank brisket chicken pastrami 
+                fatback pancetta tri-tip shankle capicola sausage. Meatloaf biltong beef ribs 
+                andouille swine spare ribs pork chop shoulder ham hock landjaeger cow alcatra 
+                flank tongue. Pork belly biltong filet mignon pastrami boudin beef ribs. Chicken 
+                cupim drumstick ham hock. Tenderloin sirloin buffalo jerky sausage doner ham 
+                hock pig prosciutto. Pig fatback shank, tenderloin short ribs alcatra bresaola 
+                flank sirloin chuck pancetta capicola cow. Flank turkey beef ribs, kielbasa 
+                sausage corned beef turducken ground round cow pork belly ham hock rump chicken 
+                burgdoggen shankle.
+            </p>
+            <button type="button" class="btn btn-primary">Join Event</button>
+            <!-- This link needs to receive an attribute from the db with the event's id -->
+            <a href="/events/event"><button type="button" class="btn btn-info">Details</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<%- include _footer.ejs %>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+  crossorigin="anonymous">
+</script>
+<script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  crossorigin="anonymous">
+</script>
+<script 
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  crossorigin="anonymous">
+</script>  
+<script src="../javascripts/profile_map.js"></script>
+</body>
+</html>

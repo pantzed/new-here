@@ -13,6 +13,7 @@ const port = process.env.PORT || 5000;
 const index = require('./routes/index');
 const userLogin = require('./routes/login');
 const profile = require('./routes/profile');
+const events = require('./routes/events');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(index);
 app.use(userLogin);
 app.use(profile);
+app.use(events);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
