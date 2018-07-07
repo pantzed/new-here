@@ -17,4 +17,8 @@ router.get('/events/event', (req, res) => {
   res.render('event', {title: 'This Event'});
 })
 
+router.get('/events/event/edit', (req, res) => {
+  res.render('edit_event', ({title: 'Edit Event'}));
+})
+
 module.exports = router;
