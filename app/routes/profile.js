@@ -13,4 +13,8 @@ router.get('/profile', (req, res) => {
   res.render('profile', {title: 'Profile Page'});
 });
 
+router.get('/profile/edit', (req, res) => {
+  res.render('edit_profile', {title: 'Edit Profile Page'});
+});
+
 module.exports = router;
