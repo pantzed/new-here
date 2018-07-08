@@ -17,8 +17,8 @@ router.get('/signin', (req, res) => {
 });
 
 router.post('/signin/:id', (req, res) => {
-  async function verify() {
-    const ticket = await client.verifyIdToken({
+  function verify() {
+    const ticket = client.verifyIdToken({
         idToken: token,
         audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
         // Or, if multiple clients access the backend:
