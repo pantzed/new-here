@@ -1,5 +1,10 @@
 (function () {
 
+  document.getElementById('google-signin').addEventListener('click', function(){
+    event.preventDefault();
+    onSignIn();
+  });
+
   document.getElementById('google-signout').addEventListener('click', signOut);
 
    function onSignIn(googleUser) {
@@ -11,6 +16,7 @@
   }
 
   function signOut() {
+    event.preventDefault();
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
