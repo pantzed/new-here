@@ -8,7 +8,7 @@ const router = express.Router();
 const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
-const {OAuth2Client} = require('google-auth-library';
+const {OAuth2Client} = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
 
 router.post('/signin/:id', (req, res) => {
@@ -16,7 +16,7 @@ router.post('/signin/:id', (req, res) => {
   async function verify() {
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: "1074020877158-eb30cjftrhcvulod09gqgtbnbjqj7srg.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
+        audience: "1074020877158-eb30cjftrhcvulod09gqgtbnbjqj7srg.apps.googleusercontent.com"  // Specify the CLIENT_ID of the app that accesses the backend
         // Or, if multiple clients access the backend:
         //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
     });
@@ -27,6 +27,7 @@ router.post('/signin/:id', (req, res) => {
   }
   verify().catch(console.error);
   console.log('fjhlajksdhfjadhf');
+  res.render('profile', {title: 'Profile Page'});
 });
 
 module.exports = router;
