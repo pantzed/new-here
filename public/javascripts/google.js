@@ -1,9 +1,10 @@
 (function() {
 
   document.getElementById('google-signout').addEventListener('click', signOut);
-  
+
   function onSignIn(googleUser) {
     let id_token = googleUser.getAuthResponse().id_token;
+    fetch(`signin/${id_token}`, {method: "POST"});
   }
 
   function signOut() {
