@@ -2,7 +2,7 @@
 
   function onSignIn(googleUser) {
     let id_token = googleUser.getAuthResponse().id_token;
-    postUser(id_token);
+    // postUser(id_token);
   }
 
   function signOut() {
@@ -12,8 +12,8 @@
     });
   }
 
-  function postUser(id_token) {
-    fetch(`/signin/${id_token}`, {method: 'POST'});
-  }
+  // function postUser(id_token) {
+  //   fetch(`/signin/${id_token}`, {method: 'POST'});
+  // }
 
 })();
