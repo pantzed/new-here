@@ -14,7 +14,7 @@ const index = require('./routes/index');
 const userLogin = require('./routes/login');
 const profile = require('./routes/profile');
 const events = require('./routes/events');
-const singin = require('./routes/signin');
+const signin = require('./routes/signin');
 
 const app = express();
 
