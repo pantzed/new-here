@@ -35,8 +35,8 @@
             <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
                 class="img img-fluid img-shadow" />
             <div class="pt-2">
-              <h2>Name</h2>
-              <h3>Location</h3>
+              <h2><%= first_name %> <%= last_name %></h2>
+              <h3><%= location %></h3>
             </div>
           </div>
         </div>
@@ -47,57 +47,33 @@
           </div>
         </div>
       </div>
+      
       <div class="col-8">
         <div class="row">
           <div class="col-12">
             <h2>Your Upcoming Events</h2>
-
             <div class="accordion" id="accordionExample">
+              <% events.forEach((event) => { %>
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Collapsible Group Item #1
+                      <%= event.title %>
                     </button>
                   </h5>
                 </div>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <h6><%= event.date %></h6>
+                    <p><%= event.description %></p>
                   </div>
                 </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Collapsible Group Item #2
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Collapsible Group Item #3
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                  <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  </div>
-                </div>
-              </div>
+              </div> 
             </div>
+            <% }); %>
           </div>
         </div>
+
         <div class="row mt-3 mb-5">
           <div class="col-12 d-flex justify-content-end">
             <a href="/events"><button type="button" class="btn btn-primary img-shadow">Discover More Events!</button></a>
@@ -108,10 +84,9 @@
           <div class="col-6">
             <h4>Suggested Events</h4>
             <ul>
-              <li>This event</li>
-              <li>That event</li>
-              <li>Another event</li>
-              <li>Last event</li>
+              <% allEvents.forEach((event) => { %>
+              <li><%= event.title %></li>
+              <% }); %>
             </ul>
           </div>
           <div class="col-6">
@@ -119,13 +94,13 @@
               <script>
                   // Initialize and add the map
                   function initMap() {
-                    // The location of Uluru
-                    var uluru = {lat: 30.267, lng: -97.743};
-                    // The map, centered at Uluru
+                    // The location of place
+                    var place = {lat: 30.267, lng: -97.743};
+                    // The map, centered at place
                     var map = new google.maps.Map(
-                        document.getElementById('map'), {zoom: 13, center: uluru});
-                    // The marker, positioned at Uluru
-                    var marker = new google.maps.Marker({position: uluru, map: map});
+                        document.getElementById('map'), {zoom: 13, center: place});
+                    // The marker, positioned at place
+                    var marker = new google.maps.Marker({position: place, map: map});
                   }
               </script>
               <script async defer
@@ -137,7 +112,7 @@
         <hr>
         <div class="row mt-5">
           <div class="col-12">
-            <h4>About Your City</h4>
+            <h4>About <%= location %></h4>
             <p>
                 Bacon ipsum dolor amet rump pork t-bone, jerky shank brisket chicken pastrami 
                 fatback pancetta tri-tip shankle capicola sausage. Meatloaf biltong beef ribs 
