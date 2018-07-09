@@ -19,8 +19,20 @@ router.get('/events/:id/edit', (req, res) => {
 });
 
 router.get('/events/:id', (req, res) => {
-  res.render('event', {title: 'This Event'});
-})
+  knex('events')
+  .where('id', req.params.id)
+  .then((event) => {
+    return event[0];
+  })
+  .then((event) => {
+    knex('event_attendees').where('event_attendees.event', req.params.id)
+    .join('users', 'event_attendees.attendee', 'users.id')
+    .select('users.first_name', 'users.last_name', 'users.photo')
+    .then((attendees) => {
+      res.render('event', {title: 'This Event', noAttendees: 'Be the first to sign up!', event: event, attendees: attendees});
+    });
+  });
+});
 
 router.get('/events', (req, res) => {
   knex('events')
