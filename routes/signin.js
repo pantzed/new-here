@@ -17,6 +17,7 @@ router.get('/signin', (req, res) => {
 });
 
 router.post('/signin/:id', (req, res) => {
+  console.log(true);
   function verify() {
     const ticket = client.verifyIdToken({
         idToken: token,
