@@ -11,7 +11,6 @@ const logger = require('morgan');
 const port = process.env.PORT || 8000;
 
 const index = require('./routes/index');
-const userLogin = require('./routes/login');
 const profile = require('./routes/profile');
 const events = require('./routes/events');
 const signin = require('./routes/signin');
@@ -29,7 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(index);
-app.use(userLogin);
 app.use(profile);
 app.use(events);
 app.use(signin);

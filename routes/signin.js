@@ -13,7 +13,7 @@ const client = new OAuth2Client("1074020877158-eb30cjftrhcvulod09gqgtbnbjqj7srg.
 
 
 router.get('/signin', (req, res) => {
-  res.render('signin', {title: 'SignIn Page'});
+  res.render('signin', {title: 'Sign In'});
 });
 
 router.post('/signin/:id', (req, res) => {
