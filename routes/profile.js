@@ -26,7 +26,8 @@ router.post('/profile', (req, res) => {
   .then((user) => {
     render.first_name = user[0].first_name;
     render.last_name = user[0].last_name;
-    render.location = user[0].location;
+    render.city = user[0].city;
+    render.state = user[0].state;
     render.age = user[0].age;
     return user[0];
   })
@@ -42,10 +43,15 @@ router.post('/profile', (req, res) => {
       knex('events')
       .then((allEvents) => {
         render.allEvents = allEvents;
-        console.log(render);
       })
       .then(() => {
-        res.render('profile', render);
+        knex('locations').where('city', 'Austin')
+        .then((city) => {
+          render.cityDescription = city[0].description;
+        })
+        .then(() => {
+          res.render('profile', render);
+        });
       });
     });
   });

@@ -7,7 +7,8 @@ exports.up = function(knex, Promise) {
     table.string('first_name');
     table.string('last_name');
     table.integer('age').unsigned();
-    table.string('location').notNullable();
+    table.string('city').notNullable();
+    table.string('state').notNullable();
     table.string('photo');
     table.string('user_type');
   });
