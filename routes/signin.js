@@ -16,6 +16,10 @@ router.get('/signin', (req, res) => {
   res.render('signin', {title: 'SignIn Page'});
 });
 
+router.post('/signin', (req, res) => {
+  res.render('signin', {title: 'Sign In'});
+});
+
 router.post('/signin/:id', (req, res) => {
   console.log(true);
   function verify() {
