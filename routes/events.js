@@ -10,10 +10,13 @@ const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
 router.get('/events', (req, res) => {
-  res.render('events', {title: 'Events Page'});
+  knex('events')
+  .then((events) => {
+    res.render('events', {title: 'Events Page', noEvents: 'There are no events available', events: events});
+  })
 });
 
-router.get('/events/event', (req, res) => {
+router.get('/events/:id', (req, res) => {
   res.render('event', {title: 'This Event'});
 })
 
