@@ -52,8 +52,11 @@
         <div class="row">
           <div class="col-12">
             <h2>Your Upcoming Events</h2>
+            <% if (events.length === 0) { %>
+            <h5><%= noEvents %></h5>
+            <% }; %>
+            <% events.forEach((event) => { %>
             <div class="accordion" id="accordionExample">
-              <% events.forEach((event) => { %>
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">

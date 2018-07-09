@@ -20,6 +20,7 @@ router.get('/profile/edit', (req, res) => {
 router.post('/profile', (req, res) => {
   let render = {};
   render.title = `Profile Page`;
+  render.noEvents = `You have no events planned!`;
 
   knex('users')
   .where('username', req.body.username)
