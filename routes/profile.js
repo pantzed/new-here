@@ -93,7 +93,7 @@ router.post('/profile', (req, res) => {
             user.cityDescription = city[0].description;
           })
           .then(() => {
-            res.render({title: title, noEvents: noEvents, user: user});
+            res.render('profile', {title: title, noEvents: noEvents, user: user});
           });
         });
       });
