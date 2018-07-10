@@ -9,6 +9,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const uuid = require('uuid/v4'); // Randomized UUID
 const port = process.env.PORT || 8000;
 
 const index = require('./routes/index');
@@ -28,6 +30,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
+app.use(session({
+  id: function(req) {
+    return uuid();
+  },
+  secret: 'skdjfhlakjsdfhlakjfhlkjfhalsj',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 app.use(index);
 app.use(profile);

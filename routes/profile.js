@@ -9,24 +9,40 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
-// router.get('/profile', (req, res) => {
-//   res.render('profile', {title: 'Profile Page'});
-// });
+router.get('/profile', (req, res) => {
+  res.render('profile', {title: 'Profile Page'});
+});
 
 router.get('/profile/:id/edit', (req, res) => {
   knex('users').where('id', req.params.id)
   .then((user) => {
-    console.log(user);
     res.render('edit_profile', {title: 'Edit Profile Page', user: user[0]});
   }) 
 });
 
 router.post('/profile', (req, res) => {
+  //Verify that the user exists
+  knex('users').where('username', req.body.username)
+  .then((user) => {
+    if (user.length > 0) {
+      if (user[0].password = req.body.password) {
+        req.session.userInfo = user[0];
+      }
+      else {
+        res.sendStatus(403);
+      }
+    }
+    else {
+      res.sendStatus(403);
+    }
+    return req.session.userInfo
+  })
+  .then((user) => {
+    console.log(user);
+  })
   let render = {};
   render.title = `Profile Page`;
   render.noEvents = `You have no events planned!`;
-  console.log(true);
-  console.log(req.body);
   knex('users')
   .where('username', req.body.username)
   .then((user) => {

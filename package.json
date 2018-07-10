@@ -18,12 +18,14 @@
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "express-session": "^1.15.6",
     "fs": "0.0.1-security",
     "google-auth-library": "^1.6.1",
     "http-errors": "~1.6.2",
     "knex": "^0.15.0",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "uuid": "^3.3.2"
   }
 }
