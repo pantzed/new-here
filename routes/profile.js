@@ -24,13 +24,11 @@ router.post('/profile', (req, res) => {
   //Verify that the user exists
   knex('users').where('username', req.body.username)
   .then((user) => {
-    if (user.length > 0) {
-      if (user[0].password = req.body.password) {
-        req.session.userInfo = user[0];
-      }
-      else {
-        res.sendStatus(403);
-      }
+    if (user.length !== 1) {
+      res.sendStatus(403);
+    }
+    if (user[0].password === req.body.password) {
+      req.session.userInfo = user[0];
     }
     else {
       res.sendStatus(403);
@@ -38,42 +36,41 @@ router.post('/profile', (req, res) => {
     return req.session.userInfo
   })
   .then((user) => {
-    console.log(user);
-  })
-  let render = {};
-  render.title = `Profile Page`;
-  render.noEvents = `You have no events planned!`;
-  knex('users')
-  .where('username', req.body.username)
-  .then((user) => {
-    render.first_name = user[0].first_name;
-    render.last_name = user[0].last_name;
-    render.city = user[0].city;
-    render.state = user[0].state;
-    render.age = user[0].age;
-    render.id = user[0].id;
-    return user[0];
-  })
-  .then((user) => {
-    knex('events')
-    .join('event_attendees', 'events.id', '=', 'event_attendees.event')
-    .select('event_attendees.attendee', 'events.title', 'events.description', 'events.date', 'events.location', 'events.id')
-    .where('event_attendees.attendee', user.id)
-    .then((events) => {
-      render.events = events;
+    let render = {};
+    render.title = `Profile Page`;
+    render.noEvents = `You have no events planned!`;
+    knex('users')
+    .where('username', req.body.username)
+    .then((user) => {
+      render.first_name = user[0].first_name;
+      render.last_name = user[0].last_name;
+      render.city = user[0].city;
+      render.state = user[0].state;
+      render.age = user[0].age;
+      render.id = user[0].id;
+      return user[0];
     })
-    .then(() => {
+    .then((user) => {
       knex('events')
-      .then((allEvents) => {
-        render.allEvents = allEvents;
+      .join('event_attendees', 'events.id', '=', 'event_attendees.event')
+      .select('event_attendees.attendee', 'events.title', 'events.description', 'events.date', 'events.location', 'events.id')
+      .where('event_attendees.attendee', user.id)
+      .then((events) => {
+        render.events = events;
       })
       .then(() => {
-        knex('locations').where('city', 'Austin')
-        .then((city) => {
-          render.cityDescription = city[0].description;
+        knex('events')
+        .then((allEvents) => {
+          render.allEvents = allEvents;
         })
         .then(() => {
-          res.render('profile', render);
+          knex('locations').where('city', 'Austin')
+          .then((city) => {
+            render.cityDescription = city[0].description;
+          })
+          .then(() => {
+            res.render('profile', render);
+          });
         });
       });
     });
