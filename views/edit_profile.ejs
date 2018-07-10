@@ -19,8 +19,8 @@
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
         crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/style.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/events.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/profile.css" />
   <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Rubik|Lato" rel="stylesheet">
 </head>
 <body>
@@ -31,26 +31,29 @@
     <div class="row d-flex justify-content-center mt-5">
       <div class="col-8 mrl-auto">
         <h4>Edit Profile</h4>
-        <form method="">
+        <form method="POST" action="/profile/<%= user.id %>/edit?_method=PUT">
           <div class="form-control">
 
-            <label for="first" class="mt-3">First Name</label>
-            <input type="text" class="form-control mb-3" id="first">
+            <label for="first_name" class="mt-3">First Name</label>
+            <input type="text" class="form-control mb-3" name="first_name" value="<%= user.first_name %>">
 
-            <label for="last">Last Name</label>
-            <textarea type="text" class="form-control mb-3" id="last"></textarea>
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control mb-3" name="last_name" value="<%= user.last_name %>">
 
             <label for="username">Username</label>
-            <input type="email" class="form-control mb-3" id="username">
+            <input type="email" class="form-control mb-3" name="username" value="<%= user.username %>">
 
-            <label for="location">Location</label>
-            <input type="text" class="form-control mb-3" id="location">
+            <label for="city">City</label>
+            <input type="text" class="form-control mb-3" name="city" value="<%= user.city %>">
+
+            <label for="city">State</label>
+            <input type="text" class="form-control mb-3" name="state" value="<%= user.state %>">
 
             <label for="age">Age</label>
-            <input type="number" class="form-control mb-3" id="age">
+            <input type="number" class="form-control mb-3" name="age" value="<%= user.age %>">
 
             <label for="photo">Profile Photo</label>
-            <input type="file" class="form-control-file mb-3" id="photo">
+            <input type="url" class="form-control mb-3" name="photo" value="<%= user.photo %>">
 
             <hr>
             <button type="submit" class="btn btn-warning mb-3">Save Changes</button>

@@ -9,19 +9,24 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
-router.get('/profile', (req, res) => {
-  res.render('profile', {title: 'Profile Page'});
-});
+// router.get('/profile', (req, res) => {
+//   res.render('profile', {title: 'Profile Page'});
+// });
 
-router.get('/profile/edit', (req, res) => {
-  res.render('edit_profile', {title: 'Edit Profile Page'});
+router.get('/profile/:id/edit', (req, res) => {
+  knex('users').where('id', req.params.id)
+  .then((user) => {
+    console.log(user);
+    res.render('edit_profile', {title: 'Edit Profile Page', user: user[0]});
+  }) 
 });
 
 router.post('/profile', (req, res) => {
   let render = {};
   render.title = `Profile Page`;
   render.noEvents = `You have no events planned!`;
-
+  console.log(true);
+  console.log(req.body);
   knex('users')
   .where('username', req.body.username)
   .then((user) => {
@@ -30,6 +35,7 @@ router.post('/profile', (req, res) => {
     render.city = user[0].city;
     render.state = user[0].state;
     render.age = user[0].age;
+    render.id = user[0].id;
     return user[0];
   })
   .then((user) => {
@@ -87,6 +93,38 @@ router.post('/profile/new_user', (req, res) => {
         location: userData[0].location
         })
       })
+    })
+  })
+});
+
+router.get('/profile/:id/edit', (req, res) => {
+  let update = {};
+  for (let key in req.body) {
+    update[key] = req.body[key];
+  }
+  knex('users').where('id', req.params.id)
+  .update(update)
+  .then(() => {
+    knex('users').where('id', req.params.id)
+    .then((user) => {
+      res.render('profile', {title: 'Profile Page', user: user});
+    })
+  })
+});
+
+// For this post route to work, I need to pull in all of the same data
+// as the profile post route.
+router.put('/profile/:id/edit', (req, res) => {
+  let update = {};
+  for (let key in req.body) {
+    update[key] = req.body[key];
+  }
+  knex('users').where('id', req.params.id)
+  .update(update)
+  .then(() => {
+    knex('users').where('id', req.params.id)
+    .then((user) => {
+      res.render('profile', {title: 'Profile Page', user: user});
     })
   })
 });
