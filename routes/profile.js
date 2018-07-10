@@ -10,6 +10,7 @@ const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
 router.get('/profile', (req, res) => {
+  console.log(req.session.userInfo);
   res.render('profile', {title: 'Profile Page'});
 });
 
