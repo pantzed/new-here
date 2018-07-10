@@ -35,14 +35,14 @@
             <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
                 class="img img-fluid img-shadow" />
             <div class="pt-2">
-              <h2><%= first_name %> <%= last_name %></h2>
-              <h3><%= city %>, <%= state %></h3>
+              <h2><%= user.first_name %> <%= user.last_name %></h2>
+              <h3><%= user.city %>, <%= user.state %></h3>
             </div>
           </div>
         </div>
         <div class="row mt-4">
           <div class="col-12">
-            <a href="/profile/<%= id %>/edit"><button type="button" class="btn btn-primary">Edit Profile</button></a>
+            <a href="/profile/<%= user.id %>/edit"><button type="button" class="btn btn-primary">Edit Profile</button></a>
             <a href="/events/add"><button type="button" class="btn btn-secondary">Create Event</button></a>
           </div>
         </div>
@@ -52,10 +52,10 @@
         <div class="row">
           <div class="col-12">
             <h2>Your Upcoming Events</h2>
-            <% if (events.length === 0) { %>
+            <% if (user.events.length === 0) { %>
             <h5><%= noEvents %></h5>
             <% }; %>
-            <% events.forEach((event) => { %>
+            <% user.events.forEach((event) => { %>
             <div class="accordion" id="accordionExample">
               <div class="card">
                 <div class="card-header" id="headingOne">
@@ -87,7 +87,7 @@
           <div class="col-6">
             <h4>Suggested Events</h4>
             <ul>
-              <% allEvents.forEach((event) => { %>
+              <% user.allEvents.forEach((event) => { %>
               <li><%= event.title %></li>
               <% }); %>
             </ul>
@@ -115,8 +115,8 @@
         <hr>
         <div class="row mt-5">
           <div class="col-12">
-            <h4>About <%= city %></h4>
-            <p><%= cityDescription %></p>
+            <h4>About <%= user.city %>, <%= user.state %></h4>
+            <p><%= user.cityDescription %></p>
           </div>
         </div>
       </div>
