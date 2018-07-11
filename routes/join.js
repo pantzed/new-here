@@ -39,7 +39,7 @@ router.post('/join/:id', (req, res) => {
       }
     })
   .catch((error) => {
-    res.render('error', {error: error.status || 403, message: error.message, stack: "Stack"} );
+    res.render('error', {error: 403, message: error.message, stack: "Stack"} );
   })
 });
 

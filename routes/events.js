@@ -29,7 +29,7 @@ router.get('/events/:id', (req, res) => {
     .join('users', 'event_attendees.attendee', 'users.id')
     .select('users.first_name', 'users.last_name', 'users.photo')
     .then((attendees) => {
-      res.render('event', {title: 'This Event', noAttendees: 'Be the first to sign up!', event: event, attendees: attendees});
+      res.render('event', {title: 'This Event', noAttendees: 'Be the first to sign up!', event: event, attendees: attendees, user: req.session.userInfo});
     });
   });
 });
