@@ -40,7 +40,7 @@ router.post('/join/:id', (req, res) => {
     })
     .catch((error) => {
       res.status(400)
-      .send({ error: error.message });
+      .res.render('error', {error: error.message} );
     });
   });
 });
