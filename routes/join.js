@@ -17,7 +17,6 @@ router.get('/join', (req, res) => {
 router.post('/join/:id', (req, res) => {
   let user = req.body.userId;
   let event = req.params.id;
-  console.log('event: ', event);
 
   knex('events')
   .join('event_attendees', 'events.id', '=', 'event_attendees.event')
@@ -25,24 +24,23 @@ router.post('/join/:id', (req, res) => {
   .where('event_attendees.attendee', user)
   .andWhere('event_attendees.event', event)
   .then((userEvents) => {
-    if (userEvents.length > 0){
-      return Promise.reject(new Error("You're already signed up for this event!"));
-    }
+    if (userEvents.length < 1){
+      knex('event_attendees')
+        .insert({
+          event: event,
+          attendee: user
+        })
+        .then(() => {
+          res.render('profile', req.session.renderProfileInfo);
+        })
+      }
+      else {
+        return new Promise(new Error("You're already signed up for this event!"));
+      }
+    })
+  .catch((error) => {
+    res.render('error', {error: error.status || 403, message: error.message, stack: "Stack"} );
   })
-  .then(() => {
-    knex('event_attendees')
-    .insert({
-      event: event,
-      attendee: user
-    })
-    .then(() => {
-      res.render('profile', req.session.renderProfileInfo);
-    })
-    .catch((error) => {
-      res.status(400)
-      .res.render('error', {error: error.message} );
-    });
-  });
 });
 
 module.exports = router;
