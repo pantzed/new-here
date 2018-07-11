@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 const port = process.env.PORT || 8000;
 
 const index = require('./routes/index');
@@ -31,16 +32,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
 app.use(session({
+  store: new FileStore,
   name: 'server-session-cookie-id',
-  secret: 'skdjfhlakjsdfhlakjfhlkjfhalsj',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false }
+  secret: 'skdjfhlakjsdfhlakjfhlkjfhalsj92891283791',
+  resave: true,
+  saveUninitialized: false
 }));
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  session.cookie.secure = true // serve secure cookies
-}
 
 app.use(index);
 app.use(profile);
