@@ -37,7 +37,8 @@ router.get('/events/:id', (req, res) => {
 router.get('/events', (req, res) => {
   knex('events')
   .then((events) => {
-    res.render('events', {title: 'Events Page', noEvents: 'There are no events available', events: events});
+    console.log(req.session.userInfo);
+    res.render('events', {title: 'Events Page', noEvents: 'There are no events available', events: events, user: req.session.userInfo});
   })
 });
 

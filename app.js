@@ -17,6 +17,7 @@ const index = require('./routes/index');
 const profile = require('./routes/profile');
 const events = require('./routes/events');
 const signin = require('./routes/signin');
+const join = require('./routes/join');
 
 const app = express();
 
@@ -35,13 +36,18 @@ app.use(session({
   secret: 'skdjfhlakjsdfhlakjfhlkjfhalsj',
   resave: false,
   saveUninitialized: false,
-  store: new FileStore()
+  cookie: { secure: false }
 }));
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  sess.cookie.secure = true // serve secure cookies
+}
 
 app.use(index);
 app.use(profile);
 app.use(events);
 app.use(signin);
+app.use(join);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
