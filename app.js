@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const port = process.env.PORT || 8000;
 
 const index = require('./routes/index');
