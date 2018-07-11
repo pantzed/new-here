@@ -36,7 +36,7 @@ router.post('/join/:id', (req, res) => {
       attendee: user
     })
     .then(() => {
-      res.render('index', {title: 'Index'});
+      res.render('profile', req.session.renderProfileInfo);
     })
     .catch((error) => {
       res.status(400)
