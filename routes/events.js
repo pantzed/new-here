@@ -14,9 +14,23 @@ router.get('/events/add', (req, res) => {
   res.render('create_event', {title: "Create an Event"});
 });
 
+
+/* ------------------------------------- */
+/* These two routes work together to     */
+/* load and render the edit event page */
 router.get('/events/:id/edit', (req, res) => {
-  res.render('edit_event', {title: 'Edit Event'});
+  req.session.editEventId = req.params.id;
+  console.log(req.session.editEventId);
+  res.redirect('/edit_event'); 
 });
+
+router.get('/edit_event', (req, res) => {
+  knex('events').where('id', req.session.editEventId)
+  .then((event) => {
+    res.render('edit_event', {title: 'Edit Event Page', event: event[0]});
+  })
+});
+/* ------------------------------------- */
 
 router.get('/events/:id', (req, res) => {
   knex('events')

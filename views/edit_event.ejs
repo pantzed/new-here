@@ -35,19 +35,19 @@
           <div class="form-control">
 
             <label for="title" class="mt-3">Event Title</label>
-            <input type="text" class="form-control mb-3" id="name">
+            <input type="text" class="form-control mb-3" id="name" value="<%= event.title %>">
 
             <label for="description">Description</label>
-            <textarea type="text" class="form-control mb-3" id="description"></textarea>
+            <textarea type="text" class="form-control mb-3" id="description"><%= event.description %></textarea>
 
             <label for="date">Date, Time</label>
-            <input type="datetime-local" class="form-control mb-3" id="date">
+            <input type="datetime-local" class="form-control mb-3" id="date" value="<%= event.date %>">
 
             <label for="location">Location</label>
-            <input type="text" class="form-control mb-3" id="location">
+            <input type="text" class="form-control mb-3" id="location" value="<%= event.location %>">
 
             <label for="admin">Administrator</label>
-            <input type="text" class="form-control mb-3" id="admin">
+            <input type="text" class="form-control mb-3" id="admin" value="<%= event.admin %>">
 
             <button type="submit" class="btn btn-warning mb-3">Save Changes</button>
           </div>
