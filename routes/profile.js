@@ -38,12 +38,21 @@ router.get('/profile', (req, res) => {
   });
 });
 
+/* ------------------------------------- */
+/* These two routes work together to     */
+/* load and render the edit profile page */
 router.get('/profile/:id/edit', (req, res) => {
-  knex('users').where('id', req.params.id)
+  req.session.editProfileId = req.params.id;
+  res.redirect('/edit_profile'); 
+});
+
+router.get('/edit_profile', (req, res) => {
+  knex('users').where('id', req.session.editProfileId)
   .then((user) => {
     res.render('edit_profile', {title: 'Edit Profile Page', user: user[0]});
-  }) 
+  })
 });
+/* ------------------------------------- */
 
 router.post('/profile', (req, res) => {
   //Verify that the user exists
