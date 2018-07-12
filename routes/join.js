@@ -8,6 +8,7 @@ const router = express.Router();
 const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
+const updateProfileRender = require('../refreshRenderData');
 
 
 router.get('/join', (req, res) => {
@@ -31,7 +32,8 @@ router.post('/join/:id', (req, res) => {
           attendee: user
         })
         .then(() => {
-          res.render('profile', req.session.renderProfileInfo);
+          console.log(req.session.renderProfileInfo);
+          res.redirect('/profile');
         })
       }
       else {
@@ -41,6 +43,22 @@ router.post('/join/:id', (req, res) => {
   .catch((error) => {
     res.render('error', {error: 403, message: error.message, stack: "Stack"} );
   })
+});
+
+router.delete('/join/:id/leave', (req, res) => {
+  let event = req.params.id;
+  let user = req.body.user;
+  knex('event_attendees').where('attendee', user).andWhere('event', event)
+  .del()
+  .then(() => {
+    return updateProfileRender.refreshProfileRenderData(res, user);
+  })
+  .then((render) => {
+    res.redirect('/profile');
+  })
+  .catch((error) => {
+    res.render('error', {error: 403, message: error.message, stack: "Stack"} );
+  });
 });
 
 module.exports = router;

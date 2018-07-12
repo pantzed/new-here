@@ -56,19 +56,23 @@
             <h5><%= noEvents %></h5>
             <% }; %>
             <% user.events.forEach((event) => { %>
-            <div class="accordion" id="accordionExample">
+            <div class="accordion mb-1" id="accordion-<%= event.id %>">
               <div class="card">
-                <div class="card-header" id="headingOne">
+                <div class="card-header" id="heading-<%= event.id %>">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-<%= event.id %>" aria-expanded="true" aria-controls="collapse-collapse<%= event.id %>">
                       <%= event.title %>
                     </button>
                   </h5>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapse-<%= event.id %>" class="collapse hide" aria-labelledby="heading-<%= event.id %>" data-parent="#accordion-<%= event.id %>">
                   <div class="card-body">
                     <h6><%= event.date %></h6>
                     <p><%= event.description %></p>
+                    <form method="POST" action="/join/<%= event.id %>/leave?_method=DELETE">
+                      <input type="hidden" name="user" value="<%= user.id %>">
+                      <button type="submit" class="btn btn-warning">Leave Event</button>
+                    </form>
                   </div>
                 </div>
               </div> 
