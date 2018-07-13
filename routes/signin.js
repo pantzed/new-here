@@ -13,6 +13,9 @@ const client = new OAuth2Client("1074020877158-eb30cjftrhcvulod09gqgtbnbjqj7srg.
 
 
 router.get('/signin', (req, res) => {
+  if (req.session.userInfo) {
+    req.session.userInfo = {};
+  }
   res.render('signin', {title: 'Sign In'});
 });
 

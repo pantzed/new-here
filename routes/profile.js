@@ -15,7 +15,7 @@ router.get('/profile', (req, res) => {
   let noEvents = `You have no events planned!`;
   knex('events')
   .join('event_attendees', 'events.id', '=', 'event_attendees.event')
-  .select('event_attendees.attendee', 'events.title', 'events.description', 'events.date', 'events.location', 'events.id')
+  .select('event_attendees.attendee', 'events.title', 'events.description', 'events.date', 'events.location', 'events.id', 'events.photo')
   .where('event_attendees.attendee', user.id)
   .then((events) => {
     user.events = events;

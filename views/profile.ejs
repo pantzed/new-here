@@ -25,7 +25,28 @@
 </head>
 <body>
 
-  <%- include _nav.ejs %>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+      <img src="/images/map-marker.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span class="nav-bar-brand-title">NEW HERE</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/profile">Profile<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Events<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item border-left border-danger ml-2 pl-2">
+          <a class="nav-link" href="/signin">Sign Out<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <main id="main-content" class="container-fluid fill-screen">
     <div class="row mt-5 mr-3 ml-3">
@@ -34,16 +55,15 @@
           <div class="col-12">
             <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
                 class="img img-fluid img-shadow" />
-            <div class="pt-2">
+            <div class="p-2 mt-2">
               <h2><%= user.first_name %> <%= user.last_name %></h2>
-              <h3><%= user.city %>, <%= user.state %></h3>
+              <h3><span class="font-weight-light">Location: </span><%= user.city %>, <%= user.state %></h3>
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
+        <div class="row mt-2">
+          <div class="col-auto">
             <a href="/profile/<%= user.id %>/edit"><button type="button" class="btn btn-primary">Edit Profile</button></a>
-            <a href="/events/add"><button type="button" class="btn btn-secondary">Create Event</button></a>
           </div>
         </div>
       </div>
@@ -67,12 +87,27 @@
                 </div>
                 <div id="collapse-<%= event.id %>" class="collapse hide" aria-labelledby="heading-<%= event.id %>" data-parent="#accordion-<%= event.id %>">
                   <div class="card-body">
-                    <h6><%= event.date %></h6>
-                    <p><%= event.description %></p>
-                    <form method="POST" action="/join/<%= event.id %>/leave?_method=DELETE">
-                      <input type="hidden" name="user" value="<%= user.id %>">
-                      <button type="submit" class="btn btn-warning">Leave Event</button>
-                    </form>
+                    <div class="row">
+                      <div class="col-12">
+                        <h6><%= event.date %></h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-3 mt-1">
+                        <img src="<%= event.photo %>" class="img img-fluid" />
+                      </div>
+                      <div class="col-9">
+                        <p><%= event.description %></p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-end">
+                      <div class="col-auto">
+                        <form method="POST" action="/join/<%= event.id %>/leave?_method=DELETE">
+                          <input type="hidden" name="user" value="<%= user.id %>">
+                          <button type="submit" class="btn btn-warning">Leave Event</button>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div> 
@@ -83,6 +118,7 @@
 
         <div class="row mt-3 mb-5">
           <div class="col-12 d-flex justify-content-end">
+              <a href="/events/add"><button type="button" class="btn btn-success mr-2">Create Event</button></a>
             <a href="/events"><button type="button" class="btn btn-primary img-shadow">Discover More Events!</button></a>
           </div>
         </div>
@@ -92,7 +128,7 @@
             <h4>Suggested Events</h4>
             <ul>
               <% user.allEvents.forEach((event) => { %>
-              <li><%= event.title %></li>
+              <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>
               <% }); %>
             </ul>
           </div>
