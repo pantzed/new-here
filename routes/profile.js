@@ -82,6 +82,7 @@ router.post('/profile', (req, res) => {
       user.state = user[0].state;
       user.age = user[0].age;
       user.id = user[0].id;
+      user.photo = user[0].photo;
       return user[0];
     })
     .then((user) => {
