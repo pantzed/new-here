@@ -53,7 +53,7 @@
       <div class="col-4">
         <div class="row">
           <div class="col-12">
-            <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+            <img src="<%= user.photo %>"
                 class="img img-fluid img-shadow" />
             <div class="p-2 mt-2">
               <h2><%= user.first_name %> <%= user.last_name %></h2>
@@ -71,7 +71,7 @@
       <div class="col-8">
         <div class="row">
           <div class="col-12">
-            <h2>Your Upcoming Events</h2>
+            <h2><%= user.first_name %>'s Upcoming Events</h2>
             <% if (user.events.length === 0) { %>
             <h5><%= noEvents %></h5>
             <% }; %>
