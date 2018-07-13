@@ -166,10 +166,8 @@ router.put('/profile/:id/edit', (req, res) => {
   knex('users').where('id', req.params.id)
   .update(update)
   .then(() => {
-    knex('users').where('id', req.params.id)
-    .then((user) => {
-      res.render('profile', {title: 'Profile Page', user: user});
-    })
+    req.session.userInfo = update
+    res.redirect('/signin');
   })
 });
 
