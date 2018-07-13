@@ -25,13 +25,39 @@
 </head>
 <body>
 
-  <%- include _nav.ejs %>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+      <img src="/images/map-marker.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span class="nav-bar-brand-title">NEW HERE</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/events">Events<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item border-left border-danger ml-2 pl-2">
+          <a class="nav-link" href="/signin">Sign Out<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <main id="main-content" class="container-fluid fill-screen">
+    <div class="row">
+      <div class="col-auto mt-3 ml-3">
+        <a href="/events"><< All Events</a>
+      </div>
+    </div>
     <div class="row mt-5 mr-3 ml-3">
       <div class="col-12">
         <h2><%= event.title %></h2>
-        <div class="row mt-5 mb-5">
+        <div class="row mt-4 mb-5">
           <div class="col-4">
             <div class="row">
               <div class="col-12">
