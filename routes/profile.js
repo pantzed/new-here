@@ -135,12 +135,7 @@ router.post('/profile/new_user', (req, res) => {
       knex('users')
       .where('username', req.body.username)
       .then((userData) => {
-        res.render('profile', 
-        {
-        title: 'Profile',
-        first_name: userData[0].first_name,
-        location: userData[0].location
-        })
+        res.redirect('/signin')
       })
     })
   })
