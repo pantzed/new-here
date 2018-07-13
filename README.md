@@ -1,27 +1,31 @@
 # New Here
 ## Description
 New Here is a social app for finding group and individual activities
-when moving to or visiting a new place. The app allows users to 
-create a profile, join events, and create new events. In addition, 
-each event has a live chat feed for joiners of an event to 
-communicate with each other. Events are location based, so changing
-your locations changes the events available to you in that area.
+when moving to, or visiting, a new place. The app allows users to 
+create a profile, join events, and create new events. Events are 
+location based, so changing your locations changes the events 
+available to you in that area.
 
 ## User Stories
 ### Users should be able to ...
-* create an account or login with google
+* create an account or login to an existing account
 * create a profile
-* add a profile img
 * edit their profile information
 * delete their profile
 * see all available events
-* look at specific events
+* look at specific event details
 * join an event
 * leave an event
-* chat with others who have joined the same event
+* delete an event
 * create an event
-* edit a created event
-* delete a created event
+
+### Features to be developed
+* chat with others who have joined the same event
+  * Socket Library: Socket.io
+* limit event editing and deleting to the admin of that event
+* use google authentication at login
+* profile map displays location of all suggested events
+* bind locations to events and only show events when a users is at the same location
 
 ## Comps
 See 'comps' directory for wireframes
@@ -32,10 +36,8 @@ See 'comps' directory for wireframes
 * Server: Express
   * Templating Library: ejs
   * Querying Library: Knex
-  * Socket Library: Socket.io
 * Database: Postgress
 * Hosting Service: Heroku
 
 ## External APIs
-* Google User Authentication
 * Google Maps
