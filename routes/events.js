@@ -68,7 +68,7 @@ router.post('/events/add', (req, res) => {
   .then(() => {
     knex('events')
     .then((events) => {
-      res.render('events', {title: 'Events', events: events});
+      res.redirect(`/events`);
     });
   });
 });
