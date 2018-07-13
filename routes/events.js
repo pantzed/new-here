@@ -73,4 +73,19 @@ router.post('/events/add', (req, res) => {
   });
 });
 
+router.put('/events/:id', (req, res) => {
+  knex('events').where('id', req.params.id)
+  .update({
+    title: req.body.title,
+    description: req.body.description,
+    date: req.body.date,
+    location: req.body.location,
+    admin: req.body.admin,
+    photo: req.body.photo
+  })
+  .then(() => {
+    res.redirect('/events');
+  });
+});
+
 module.exports = router;
