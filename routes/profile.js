@@ -177,4 +177,12 @@ router.put('/profile/:id/edit', (req, res) => {
   })
 });
 
+router.delete('/profile/:id', (req, res) => {
+  knex('users').where('id', req.params.id)
+  .del()
+  .then(() => {
+    res.redirect('/');
+  });
+});
+
 module.exports = router;
