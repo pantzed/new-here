@@ -104,7 +104,7 @@ router.post('/profile', (req, res) => {
           })
           .then(() => {
             req.session.profileRenderInfo = {title: title, noEvents: noEvents, user: user};
-            res.render('profile', {title: title, noEvents: noEvents, user: user});
+            res.redirect('/profile');
           });
         });
       });
