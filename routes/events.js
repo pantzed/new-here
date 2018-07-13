@@ -88,4 +88,12 @@ router.put('/events/:id', (req, res) => {
   });
 });
 
+router.delete('/events/:id', (req, res) => {
+  knex('events').where('id', req.params.id)
+  .del()
+  .then(() => {
+    res.redirect('/events');
+  });
+});
+
 module.exports = router;

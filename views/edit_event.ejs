@@ -78,6 +78,20 @@
         </form>
       </div>
     </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <form method="POST" action="events/<%= event.id %>?_method=DELETE">
+          <div class="row align-items-center mt-4 p-4 border border-danger rounded">
+            <div class="col-auto">
+              <button type="submit" class="btn btn-danger">Delete Event</button>
+            </div>
+            <div class="col-auto pt-2">
+              <h6>Caution, this will permanently delete this event!</h6>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
 <%- include _footer.ejs %>
