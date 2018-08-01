@@ -11,7 +11,8 @@ exports.seed = function(knex, Promise) {
         {username: 'dirk@gmail.com', password: 'pass', first_name: 'Dirk', last_name: 'Ruschhaupt', age: 36, city: "Austin", state: "TX", photo: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/p320x320/27971838_10211141295864606_2112487746450829741_n.jpg?_nc_cat=0&oh=eddd53139b6df377399855ab212a4584&oe=5B9F21C4', user_type:'user'},
         {username: 'dave@gmail.com', password: 'pass', first_name: 'David', last_name: 'Miller', age: 36, city: "Austin", state: "TX", photo: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/p320x320/12278993_487770364735547_2439397875720257873_n.jpg?_nc_cat=0&oh=69116585fb31d2c436224de5ca56858f&oe=5BD175CF', user_type:'user'},
         {username: 'ryan@gmail.com', password: 'pass', first_name: 'Ryan', last_name: 'Borgstrom', age: 18, city: "Austin", state: "TX", photo: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/28872185_10156213210833894_8425810948246097782_n.jpg?_nc_cat=0&oh=efa0d9cf36b932ba22f9bdd1d93d05ed&oe=5BE08FC8', user_type:'user'},
-        {username: 'ryder@gmail.com', password: 'pass', first_name: 'Ryder', last_name: 'Dale', age: 26, city: "Austin", state: "TX", photo: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/p320x320/27867684_10157314181712715_5045844523595311755_n.jpg?_nc_cat=0&oh=33515c5922ec41357a21557806bb27b7&oe=5B9FE8A8', user_type:'user'}        
+        {username: 'ryder@gmail.com', password: 'pass', first_name: 'Ryder', last_name: 'Dale', age: 26, city: "Austin", state: "TX", photo: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-1/p320x320/27867684_10157314181712715_5045844523595311755_n.jpg?_nc_cat=0&oh=33515c5922ec41357a21557806bb27b7&oe=5B9FE8A8', user_type:'user'},
+        {username: 'guest@gmail.com', password: 'pass', first_name: 'Jim', last_name: 'McNulty', age: 38, city: "Austin", state: "TX", photo: 'https://upload.wikimedia.org/wikipedia/en/f/f4/The_Wire_Jimmy_McNulty.jpg', user_type:'user'}        
       ]);
     });
 };
