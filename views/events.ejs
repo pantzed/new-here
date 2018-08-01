@@ -58,11 +58,11 @@
         <% events.forEach((event) => { %>
 
         <div class="row mt-5 mb-5"> <!--event row-->
-          <div class="col-4">
+          <div class="col-xs-12 col-md-4">
             <img src=<%= event.photo %>
                 class="img img-fluid img-shadow" />
           </div>
-          <div class="col-8">
+          <div class="col-xs-12 col-md-8 mt-4 mt-md-0">
             <h4><%= event.title %></h4>
             <h6><%= event.location %></h6>
             <h6><%= event.date %></h6>
