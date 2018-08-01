@@ -56,22 +56,22 @@
           <div class="form-control">
 
             <label for="title" class="mt-3">Event Title</label>
-            <input type="text" class="form-control mb-3" name="title" value="<%= event.title %>">
+            <input type="text" class="form-control mb-3" name="title" value="<%= event.title %>" required>
 
             <label for="description">Description</label>
-            <textarea type="text" class="form-control mb-3" name="description"><%= event.description %></textarea>
+            <textarea type="text" class="form-control mb-3" name="description" required><%= event.description %></textarea>
 
             <label for="date">Date, Time</label>
-            <input type="datetime-local" class="form-control mb-3" name="date" value="<%= event.date %>">
+            <input type="datetime-local" class="form-control mb-3" name="date" value="<%= event.date %>" required>
 
             <label for="location">Location</label>
-            <input type="text" class="form-control mb-3" name="location" value="<%= event.location %>">
+            <input type="text" class="form-control mb-3" name="location" value="<%= event.location %>" required>
 
             <label for="admin">Administrator</label>
-            <input type="text" class="form-control mb-3" name="admin" value="<%= event.admin %>">
+            <input type="text" class="form-control mb-3" name="admin" value="<%= event.admin %>" required>
 
             <label for="photo">Photo</label>
-            <input type="text" class="form-control mb-3" name="photo" value="<%= event.photo %>">
+            <input type="text" class="form-control mb-3" name="photo" value="<%= event.photo %>" required>
 
             <button type="submit" class="btn btn-warning mb-3">Save Changes</button>
           </div>
