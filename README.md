@@ -41,3 +41,8 @@ See 'comps' directory for wireframes
 
 ## External APIs
 * Google Maps
+
+## To-do
+* Make all edit form fields required
+* Refactor google maps fetch
+* Grab actual location and update location description
